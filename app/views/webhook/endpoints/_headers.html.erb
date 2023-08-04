@@ -1,0 +1,15 @@
+<h3>Custom Headers: </h3>
+<table id="webhook_headers">
+  <tr>
+    <th>S.No</th>
+    <th>Key</th>
+    <th>Value</th>
+   </tr>
+  <% @headers.each_with_index do |header, index| %>
+    <tr>
+      <td><%= index + 1%></td>
+      <td><%= header.key%></td>
+      <td><%= header.value%></td>
+    </tr>
+  <% end %>
+</table>

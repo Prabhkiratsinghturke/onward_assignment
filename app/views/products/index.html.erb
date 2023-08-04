@@ -1,0 +1,17 @@
+
+<h1>Products</h1>
+
+<table id="products">
+  <tr>
+    <th>S.No</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Qantity</th>
+    <th>Action</th>
+  </tr>
+  <% @products.each_with_index do |product, index| %>
+    <%= render product, index: index %>
+  <% end %>
+</table>
+<br/>
+<%= link_to "New product", new_product_path %>

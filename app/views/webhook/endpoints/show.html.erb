@@ -1,0 +1,14 @@
+<h3>URL: <%= @webhook_endpoint.url %></h3>
+<p><strong>Events:</strong> <%= @webhook_endpoint.events.to_sentence %></p>
+
+<div>
+  <%= link_to "Edit", edit_webhook_endpoint_path(@webhook_endpoint) %> |
+  <%= link_to "Back", webhook_endpoints_path %>
+<br/>
+
+  <%= button_to "Delete", @webhook_endpoint, method: :delete %>
+</div>
+<br/>
+<%= render "headers" %>
+<br/>
+<%= render "event_requests" %>

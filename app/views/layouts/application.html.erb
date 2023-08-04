@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Onwords</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <style type="text/css">
+      table, th, tr, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p style="color: green"><%= notice %></p>
+    <ul>
+      <li><%= link_to "Products", products_path %></li>
+      <li><%= link_to "Endpoints", webhook_endpoints_path %></li>
+    </ul>
+    <hr/>
+    <%= yield %>
+  </body>
+</html>

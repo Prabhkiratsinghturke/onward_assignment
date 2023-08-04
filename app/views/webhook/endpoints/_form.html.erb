@@ -1,0 +1,45 @@
+<%= form_with(model: webhook_endpoint) do |form| %>
+  <% if webhook_endpoint.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(webhook_endpoint.errors.count, "error") %> prohibited this webhook_endpoint from being saved:</h2>
+
+      <ul>
+        <% webhook_endpoint.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :url%>
+    <%= form.text_field :url %>
+  </div>
+
+  <div>
+    <h3>Select Events:</h3>
+    <% Webhook::Event::EVENT_TYPES.each do |event_type| %>
+      <%= form.check_box(:events, { :multiple => true }, event_type) %>
+      <%= form.label :events, event_type,  value: event_type %>
+    <% end %>
+  </div>
+  <br/>
+  <br/>
+  <h3>Add Custom Headers:</h3>
+  <%= form.fields_for :headers do |header| %>
+    <div>
+      <%= header.label :key %>
+      <%= header.text_field :key %>
+
+      <%= header.label :value%>
+      <%= header.text_field :value %>
+
+      <%= header.label :_destroy %>
+      <%= header.check_box :_destroy %>
+
+    </div>
+    <br/>
+  <% end %>
+
+  <%= form.submit %>
+<% end %>

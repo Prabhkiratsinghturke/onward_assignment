@@ -1,0 +1,18 @@
+<h1>Endpoints</h1>
+
+
+<table id="webhook_endpoints">
+  <tr>
+    <th>S.No</th>
+    <th>Url</th>
+    <th>Actions</th>
+  </tr>
+  <% @webhook_endpoints.each_with_index do |webhook_endpoint, index| %>
+    <%= render webhook_endpoint, index: index %>
+  <% end %>
+</table>
+
+
+<br/>
+
+<%= link_to "New webhook endpoint", new_webhook_endpoint_path %>

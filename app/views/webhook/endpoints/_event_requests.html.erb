@@ -1,0 +1,19 @@
+<h3>Event Requests: </h3>
+<table id="webhook_endpoints">
+  <tr>
+    <th>S.No</th>
+    <th>Event</th>
+    <th>Payload</th>
+    <th>Response</th>
+    <th>Status</th>
+  </tr>
+  <% @event_requests.each_with_index do |event_request, index| %>
+    <tr>
+      <td><%= index + 1%></td>
+      <td><%= event_request.event%></td>
+      <td><%= event_request.payload%></td>
+      <td><%= event_request.response%></td>
+      <td><%= event_request.status.capitalize%></td>
+    </tr>
+  <% end %>
+</table>
